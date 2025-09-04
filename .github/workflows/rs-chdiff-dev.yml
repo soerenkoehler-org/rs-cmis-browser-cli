@@ -1,0 +1,46 @@
+name: rs-chdiff dev
+
+on:
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - 'docker-rs/**'
+      - '.github/workflows/docker-rs.yml'
+
+jobs:
+  build-and-release:
+    name: build and release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "login to ghcr.io"
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "docker pull"
+        run: |
+          docker pull ghcr.io/soerenkoehler/docker-rs:${{ github.ref_name }}
+          docker tag ghcr.io/soerenkoehler/docker-rs:${{ github.ref_name }} docker-rs:latest
+
+      - name: "test"
+        run: ./build/test.sh
+
+      - name: "compile"
+        run: ./build/compile.sh
+
+      - name: "package"
+        run: ./build/package.sh
+
+      - name: "create release"
+        run: ./build/release.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
