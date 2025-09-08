@@ -13,4 +13,4 @@ docker run \
   --mount type=bind,src=./coverage,dst=/app/coverage \
   --mount type=bind,src=./target,dst=/app/target \
   --user root \
-  --rm -it docker-rs:latest bash
+  --rm -it docker-rs-cmish:latest bash

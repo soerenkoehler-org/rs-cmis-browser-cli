@@ -11,4 +11,4 @@ chmod 777 target
 docker run \
   --mount type=bind,src=.,dst=/app/input,ro \
   --mount type=bind,src=./target,dst=/app/target \
-  --rm docker-rs:latest bash compile.sh
+  --rm docker-rs-cmish:latest bash compile.sh
