@@ -1,4 +1,4 @@
-name: rs-chdiff dev
+name: rs-cmish dev
 
 on:
   push:

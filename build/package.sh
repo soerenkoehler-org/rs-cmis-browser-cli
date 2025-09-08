@@ -1,12 +1,12 @@
 #!/bin/bash
 
 DISTDIR=$(readlink -f ./dist)
-NAME_REPLACEMENT='s/rs-chdiff/chdiff/'
+NAME_REPLACEMENT='s/rs-cmish/cmish/'
 
 BINARIES=$(find ./target \
     -type f \
     -path "*/release/*" \
-    \( -name "rs-chdiff" -or -name "rs-chdiff.exe" \) )
+    \( -name "rs-cmish" -or -name "rs-cmish.exe" \) )
 
 mkdir -p $DISTDIR
 
@@ -30,7 +30,7 @@ for BIN in $BINARIES; do
         ;;
     esac
 
-    DISTNAME="$DISTDIR/chdiff-$(date -I)-$ARCH"
+    DISTNAME="$DISTDIR/cmish-$(date -I)-$ARCH"
 
     case $ARCH in
     *win64*)
@@ -48,7 +48,7 @@ for BIN in $BINARIES; do
 done
 
 pushd ./coverage/html
-zip -v9r "$DISTDIR/chdiff-$(date -I)-coverage.zip" \
+zip -v9r "$DISTDIR/cmish-$(date -I)-coverage.zip" \
     ./* \
     -x *.lcov \
     -x nginx*

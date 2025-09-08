@@ -17,7 +17,7 @@ HTML_TEMP_DIR="$COVERAGE_DIR/html"
 OUTPUT_DIR=/app/coverage
 REPORT_FILE="$OUTPUT_DIR/coverage.lcov"
 
-CRATE_NAME="rs-chdiff"
+CRATE_NAME="rs-cmish"
 CRATE_NAME_FS_SAFE=$(echo "$CRATE_NAME" | tr '-' '_')
 
 export RUSTFLAGS="-C instrument-coverage"

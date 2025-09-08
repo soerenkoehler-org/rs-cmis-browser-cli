@@ -1,4 +1,4 @@
-name: rs-chdiff main
+name: rs-cmish main
 
 on:
   push:
