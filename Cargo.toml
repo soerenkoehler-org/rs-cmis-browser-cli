@@ -3,7 +3,7 @@ name = "rs-cmish"
 version = "0.1.0"
 
 description='''
-Create, verify and compare hash sums on whole directory trees.
+Content Management Interactive Shell: a CLI for your CMIS archive.
 '''
 
 edition = "2024"

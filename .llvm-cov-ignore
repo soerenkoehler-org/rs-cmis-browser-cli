@@ -1,5 +1,0 @@
-/.cargo
-/.rustup/
-/rustc/
-/tests/
-_test.rs$

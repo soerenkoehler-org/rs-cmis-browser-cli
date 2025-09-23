@@ -1,8 +1,15 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
+    "folders": [
+        {
+            "path": "."
+        }
     ],
-    "settings": {}
+    "settings": {
+        "files.exclude": {
+            "coverage": true,
+            "dist": true,
+            "generated": true,
+            "target": true
+        }
+    }
 }

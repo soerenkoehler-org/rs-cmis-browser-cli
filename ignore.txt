@@ -1,6 +1,0 @@
-/coverage
-/dist
-/generated
-/target
-*.zip
-*.tar.gz
