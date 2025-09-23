@@ -46,7 +46,7 @@ jobs:
         run: ./docker-rs/docker-rs.sh compile
 
       - name: package artifacts
-        run: ./docker-rs/docker-rs.sh package chdiff
+        run: ./docker-rs/docker-rs.sh package cmish
 
       - name: create release
         run: ./docker-rs/docker-rs.sh release
