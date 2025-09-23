@@ -1,0 +1,54 @@
+name: rs-cmish
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-and-release:
+    name: build and release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout rs-cmish
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: checkout docker-rs
+        uses: actions/checkout@v4
+        with:
+          repository: soerenkoehler-org/docker-rs
+          path: ./docker-rs
+
+      - name: login to ghcr.io
+        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: pull docker-rs container image
+        run: ./docker-rs/docker-rs.sh update
+
+      - name: run tests
+        run: ./docker-rs/docker-rs.sh test
+
+      - name: scan with SonarQube
+        if: ${{ github.ref_name == 'main' }}
+        uses: SonarSource/sonarqube-scan-action@fd88b7d7ccbaefd23d8f36f73b59db7a3d246602
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: compile
+        run: ./docker-rs/docker-rs.sh compile
+
+      - name: package artifacts
+        run: ./docker-rs/docker-rs.sh package cmish
+
+      - name: create release
+        run: ./docker-rs/docker-rs.sh release
+        env:
+          GH_TOKEN: ${{ github.token }}
