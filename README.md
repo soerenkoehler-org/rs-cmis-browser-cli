@@ -26,6 +26,6 @@ Lorem ipsum.
 [badge-dev]:    https://github.com/soerenkoehler-org/rs-cmish/actions/workflows/rs-cmish.yml/badge.svg?branch=dev
 [github-dev]:   https://github.com/soerenkoehler-org/rs-cmish/actions/workflows/rs-cmish.yml
 
-[sonar]:        https://sonarcloud.io/summary/overall?id=soerenkoehler_rs-cmish
-[badge-status]: https://sonarcloud.io/api/project_badges/measure?project=soerenkoehler_rs-cmish&metric=alert_status
-[badge-cover]:  https://sonarcloud.io/api/project_badges/measure?project=soerenkoehler_rs-cmish&metric=coverage
+[sonar]:        https://sonarcloud.io/summary/overall?id=soerenkoehler-org_rs-cmish
+[badge-status]: https://sonarcloud.io/api/project_badges/measure?project=soerenkoehler-org_rs-cmish&metric=alert_status
+[badge-cover]:  https://sonarcloud.io/api/project_badges/measure?project=soerenkoehler-org_rs-cmish&metric=coverage
