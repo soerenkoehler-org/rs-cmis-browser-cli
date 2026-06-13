@@ -13,12 +13,12 @@ jobs:
 
     steps:
       - name: checkout rs-cmish
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: checkout docker-rs
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: soerenkoehler-org/docker-rs
           path: ./docker-rs
