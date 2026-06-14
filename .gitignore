@@ -2,5 +2,6 @@
 /dist
 /generated
 /target
+/tmp
 *.zip
 *.tar.gz
